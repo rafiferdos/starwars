@@ -1,6 +1,7 @@
+import { COLORS } from '@/constants/colors'
 import { IFilms } from '@/types/films'
 import React, { useEffect, useState } from 'react'
-import { FlatList, StyleSheet, Text, View } from 'react-native'
+import { FlatList, RefreshControl, StyleSheet, Text, View } from 'react-native'
 
 const Page = () => {
   const [films, setFilms] = useState<IFilms[]>([])
@@ -26,6 +27,11 @@ const Page = () => {
     fetchFilms()
   }, [])
 
+  const onRefresh = () => {
+    setRefreshing(true)
+    fetchFilms()
+  }
+
   return (
     <View style={styles.containerStyle}>
       <FlatList
@@ -49,6 +55,8 @@ const Page = () => {
             </Text>
           </View>
         )}
+        refreshControl={<RefreshControl refreshing={refreshing} onRefresh={fetchFilms} tintColor={COLORS.gold} />}
+        ListEmptyComponent={() => <Text style={{color: '#fff'}}>No films found.</Text>}
       />
     </View>
   )

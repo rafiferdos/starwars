@@ -1,12 +1,21 @@
-import { View, Text } from 'react-native'
+import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
 const films = () => {
   return (
-    <View>
+    <View style={styles.containerStyle} >
       <Text>films</Text>
     </View>
   )
 }
 
 export default films
+
+const styles = StyleSheet.create({
+  containerStyle: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#292929'
+  }
+})

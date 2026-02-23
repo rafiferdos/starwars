@@ -1,5 +1,7 @@
-import { Tabs } from "expo-router";
+import { Tabs } from 'expo-router'
 
 export default function RootLayout() {
-  return <Tabs />;
+  return <Tabs>
+    <Tabs.Screen name="index" options={{ href: null }} />
+  </Tabs>
 }

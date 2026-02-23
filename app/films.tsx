@@ -13,7 +13,7 @@ const Page = () => {
     try {
       const response = await fetch('https://swapi.dev/api/films/')
       const data = await response.json()
-      console.log('🚀 ~ fetchFilms ~ data:', data)
+      console.info("🚀 ~ fetchFilms ~ data:", data)
       setFilms(data.results)
     } catch (error) {
       console.error('Error fetching films:', error)

@@ -1,3 +1,5 @@
+import FilmItem from '@/components/FilmItem'
+import ListEmpty from '@/components/ListEmpty'
 import { COLORS } from '@/constants/colors'
 import { IFilms } from '@/types/films'
 import React, { useEffect, useState } from 'react'
@@ -24,7 +26,7 @@ const Page = () => {
   }
 
   useEffect(() => {
-    fetchFilms()
+    // fetchFilms()
   }, [])
 
   const onRefresh = () => {
@@ -37,26 +39,9 @@ const Page = () => {
       <FlatList
         data={films}
         keyExtractor={(item) => item.episode_id.toString()}
-        renderItem={({ item }) => (
-          <View
-            style={{
-              marginBottom: 20,
-              padding: 15,
-              backgroundColor: '#3a3a3a',
-              borderRadius: 10
-            }}
-          >
-            <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#fff' }}>
-              {item.title}
-            </Text>
-            <Text style={{ color: '#ccc' }}>Director: {item.director}</Text>
-            <Text style={{ color: '#ccc' }}>
-              Release Date: {item.release_date}
-            </Text>
-          </View>
-        )}
+        renderItem={({ item }) => <FilmItem />}
         refreshControl={<RefreshControl refreshing={refreshing} onRefresh={fetchFilms} tintColor={COLORS.gold} />}
-        ListEmptyComponent={() => <Text style={{color: '#fff'}}>No films found.</Text>}
+        ListEmptyComponent={() => <ListEmpty loading={loading} message="No films found" />}
       />
     </View>
   )

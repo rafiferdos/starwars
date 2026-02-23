@@ -45,7 +45,7 @@ export default function RootLayout() {
           title: 'All Characters',
           tabBarLabel: 'People',
           tabBarIcon: ({ color, size }) => (
-            <FontAwesome6 name='people-group' size={24} color='black' />
+            <FontAwesome6 name='people-group' size={size} color={color} />
           )
         }}
       />
@@ -56,7 +56,7 @@ export default function RootLayout() {
           title: 'Favorites',
           tabBarLabel: 'Favorites',
           tabBarIcon: ({ color, size }) => (
-            <MaterialIcons name='favorite' size={24} color='black' />
+            <MaterialIcons name='favorite' size={size} color={color} />
           )
         }}
       />

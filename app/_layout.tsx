@@ -13,7 +13,14 @@ export default function RootLayout() {
         headerTitleAlign: 'center',
         headerTitleStyle: {
           fontWeight: 'bold'
-        }
+        },
+        tabBarStyle: {
+          backgroundColor: COLORS.tabBar,
+          borderTopColor: COLORS.dark,
+          borderTopWidth: 1,
+        },
+        tabBarActiveTintColor: COLORS.activeTab,
+        tabBarInactiveTintColor: COLORS.inactiveTab,
       }}
     >
       <Tabs.Screen name='index' options={{ href: null }} />

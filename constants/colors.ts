@@ -4,5 +4,7 @@ export const COLORS = {
   gold: '#d4af37',
   white: '#ffffff',
   tabBar: '#333333',
-  text: '#ffffff'
+  text: '#ffffff',
+  activeTab: '#d4af37',
+  inactiveTab: '#888888',
 }

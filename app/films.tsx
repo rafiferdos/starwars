@@ -26,7 +26,7 @@ const Page = () => {
   }
 
   useEffect(() => {
-    // fetchFilms()
+    fetchFilms()
   }, [])
 
   const onRefresh = () => {
@@ -39,7 +39,7 @@ const Page = () => {
       <FlatList
         data={films}
         keyExtractor={(item) => item.episode_id.toString()}
-        renderItem={({ item }) => <FilmItem />}
+        renderItem={({ item }) => <FilmItem item={item} />}
         refreshControl={<RefreshControl refreshing={refreshing} onRefresh={fetchFilms} tintColor={COLORS.gold} />}
         ListEmptyComponent={() => <ListEmpty loading={loading} message="No films found" />}
       />
@@ -52,8 +52,9 @@ export default Page
 const styles = StyleSheet.create({
   containerStyle: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    // justifyContent: 'center',
+    // alignItems: 'center',
+    padding: 10,
     backgroundColor: '#292929'
   }
 })

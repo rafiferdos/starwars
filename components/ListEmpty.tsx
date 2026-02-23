@@ -1,15 +1,26 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { COLORS } from '@/constants/colors'
 import React from 'react'
+import {
+  ActivityIndicator,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native'
 
 interface IListEmptyProps {
   loading: boolean
   message?: string
 }
 
-const ListEmpty = ({loading, message = 'No items found'}: IListEmptyProps) => {
+const ListEmpty = ({
+  loading,
+  message = 'No items found'
+}: IListEmptyProps) => {
   return (
-    <View style={styles.emptyContainer}>
-      <Text style={styles.text}>{message}</Text>
+    <View style={[styles.emptyContainer]}>
+      {loading ?
+        <ActivityIndicator size='large' color={COLORS.gold} />
+      : <Text style={styles.text}>{message}</Text>}
     </View>
   )
 }
@@ -21,8 +32,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 20,
-    height: '100%'
+    height: 400
   },
   text: {
     fontSize: 16,

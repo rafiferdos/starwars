@@ -7,7 +7,7 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 const FilmItem: React.FC<{ item: IFilms }> = ({ item }) => {
   return (
     <Link href={`/films/${item.episode_id}` as Href} asChild>
-      <TouchableOpacity>
+      <TouchableOpacity activeOpacity={0.8}>
         <View style={styles.container}>
           {/* Header row: title + episode badge */}
           <View style={styles.header}>

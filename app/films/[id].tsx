@@ -10,9 +10,8 @@ import {
 } from 'react-native'
 
 const Page = () => {
-  const id = useLocalSearchParams()
+  const { id } = useLocalSearchParams()
   const [film, setFilm] = useState<IFilms | null>(null)
-  console.log('🚀 ~ Details ~ film:', film)
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
@@ -39,19 +38,19 @@ const Page = () => {
         </View>
       : film ?
         <View style={{ padding: 20 }}>
-          <Text style={{ fontSize: 24, fontWeight: 'bold', marginBottom: 10 }}>
+          <Text style={{ fontSize: 32, fontWeight: 'bold', marginBottom: 10, color: 'gold' }}>
             {film.title}
           </Text>
-          <Text style={{ fontSize: 16, marginBottom: 5 }}>
+          <Text style={{ fontSize: 16, marginBottom: 5, color: '#fff' }}>
             Director: {film.director}
           </Text>
-          <Text style={{ fontSize: 16, marginBottom: 5 }}>
+          <Text style={{ fontSize: 16, marginBottom: 5, color: '#fff' }}>
             Producer: {film.producer}
           </Text>
-          <Text style={{ fontSize: 16, marginBottom: 5 }}>
+          <Text style={{ fontSize: 16, marginBottom: 5, color: '#fff' }}>
             Release Date: {film.release_date}
           </Text>
-          <Text style={{ fontSize: 16, marginTop: 10 }}>
+          <Text style={{ fontSize: 16, marginTop: 10, color: '#fff' }}>
             {film.opening_crawl}
           </Text>
         </View>
@@ -69,6 +68,7 @@ const styles = StyleSheet.create({
   loadingContainer: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    height: 400
   }
 })

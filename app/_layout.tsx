@@ -33,6 +33,7 @@ export default function RootLayout() {
           animation: 'fade',
           title: 'Films & Movies',
           tabBarLabel: 'Films',
+          headerShown: false,
           tabBarIcon: ({ color, size }) => (
             <Ionicons name='film' size={size} color={color} />
           )

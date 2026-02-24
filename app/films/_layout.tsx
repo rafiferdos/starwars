@@ -14,6 +14,9 @@ const Layout = () => {
         headerTitleAlign: 'center',
         headerTitleStyle: {
           fontWeight: 'bold'
+        },
+        contentStyle: {
+          backgroundColor: COLORS.dark
         }
       }}
     >

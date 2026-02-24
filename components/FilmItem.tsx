@@ -1,42 +1,47 @@
 import { COLORS } from '@/constants/colors'
 import { IFilms } from '@/types/films'
+import { Link, type Href } from 'expo-router'
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 
 const FilmItem: React.FC<{ item: IFilms }> = ({ item }) => {
   return (
-    <View style={styles.container}>
-      {/* Header row: title + episode badge */}
-      <View style={styles.header}>
-        <Text style={styles.title} numberOfLines={2}>
-          {item.title}
-        </Text>
-        <View style={styles.badge}>
-          <Text style={styles.badgeLabel}>EP</Text>
-          <Text style={styles.badgeNumber}>{item.episode_id}</Text>
-        </View>
-      </View>
+    <Link href={`/films/${item.episode_id}` as Href} asChild>
+      <TouchableOpacity>
+        <View style={styles.container}>
+          {/* Header row: title + episode badge */}
+          <View style={styles.header}>
+            <Text style={styles.title} numberOfLines={2}>
+              {item.title}
+            </Text>
+            <View style={styles.badge}>
+              <Text style={styles.badgeLabel}>EP</Text>
+              <Text style={styles.badgeNumber}>{item.episode_id}</Text>
+            </View>
+          </View>
 
-      {/* Divider */}
-      <View style={styles.divider} />
+          {/* Divider */}
+          <View style={styles.divider} />
 
-      {/* Meta info */}
-      <View style={styles.metaRow}>
-        <View style={styles.metaItem}>
-          <Text style={styles.metaLabel}>Director</Text>
-          <Text style={styles.metaValue}>{item.director}</Text>
-        </View>
-        <View style={styles.metaItem}>
-          <Text style={styles.metaLabel}>Released</Text>
-          <Text style={styles.metaValue}>{item.release_date}</Text>
-        </View>
-      </View>
+          {/* Meta info */}
+          <View style={styles.metaRow}>
+            <View style={styles.metaItem}>
+              <Text style={styles.metaLabel}>Director</Text>
+              <Text style={styles.metaValue}>{item.director}</Text>
+            </View>
+            <View style={styles.metaItem}>
+              <Text style={styles.metaLabel}>Released</Text>
+              <Text style={styles.metaValue}>{item.release_date}</Text>
+            </View>
+          </View>
 
-      {/* Opening crawl snippet */}
-      <Text style={styles.crawl} numberOfLines={3}>
-        {item.opening_crawl}
-      </Text>
-    </View>
+          {/* Opening crawl snippet */}
+          <Text style={styles.crawl} numberOfLines={3}>
+            {item.opening_crawl}
+          </Text>
+        </View>
+      </TouchableOpacity>
+    </Link>
   )
 }
 

@@ -5,12 +5,10 @@ import React from 'react'
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 
 const FilmItem: React.FC<{ item: IFilms }> = ({ item }) => {
-
   const id = item.url.split('/').filter(Boolean).pop() || ''
-  console.log("🚀 ~ FilmItem ~ id:", id)
 
   return (
-    <Link href={`/films/${item.episode_id}` as Href} asChild>
+    <Link href={`/films/${id}` as Href} asChild>
       <TouchableOpacity activeOpacity={0.8}>
         <View style={styles.container}>
           {/* Header row: title + episode badge */}
